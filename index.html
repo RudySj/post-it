@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./index.css">
     <script src="https://kit.fontawesome.com/4a99253051.js" crossorigin="anonymous" defer></script>
+    <script src="./js/common.js" defer></script>
+    <script src="./js/index.js" defer></script>
 </head>
 
 <body>
@@ -48,17 +50,16 @@
         </p>
         <h2>Try It Out</h2>
         <p> Leave a note: </p>
-        <form class="sticky-note">
-            <input name="post-it-title" type="text" placeholder="Title">
-            <textarea id="post-it" cols="1" rows="20" maxlength="160" placeholder="your notes..."
+        <form id="sticky-form" class="sticky-note" method="POST">
+            <input name="post-it-title" type="text" placeholder="Title" maxlength="60">
+            <textarea name="post-it" cols="1" rows="20" maxlength="160" placeholder="your notes..."
                 spellcheck="true"></textarea>
-            <div class="text-indicator"> 0/120 </div>
+            <div class="text-indicator"> 0/160 </div>
         </form>
 
-        <button class="post-button" id="button">post</button>
+        <button class="post-button" id="sticky-button" type="submit" form="sticky-form">post</button>
 
     </div>
-    <script src="" async defer></script>
 </body>
 
 </html>
