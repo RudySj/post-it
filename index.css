@@ -118,7 +118,10 @@ nav a {
     nav ul{
         flex-direction: column;
         font-size: 20px;
-  }
+    }
+    .anteater {
+        display: none;
+    }
 }
 
 .row {
@@ -170,4 +173,20 @@ nav a {
 .saved-sticky-note .sticky-title {
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
+}
+
+.anteater {
+    object-fit: contain;
+    animation: pop-up 2s linear 4s;
+    transform-origin: center center;
+    left: 5%;
+    top: 80%;
+    z-index: -1;
+    position: absolute;
+}
+
+@keyframes pop-up {
+  0% {transform: rotate(0)}
+  50% {transform: rotate(20deg); left: 8%}
+  100% {transform: rotate(0)}
 }
