@@ -22,6 +22,9 @@ const stickyTemplate = ({ title, content, key, iconClass, iconAction }) => {
 const fetchStickyNotes = activeIndicator => {
     const stickyNotesKeys = Object.keys(sessionStorage);
 
+    // sort keys into numeric order
+    stickyNotesKeys.sort((a, b) => a - b);
+
     // we filter in case there are default properties set by a 3rd party
     // and only return active notes
     return stickyNotesKeys
@@ -34,10 +37,9 @@ const populatePage = ({ activeIndicator, iconClass, iconAction }) => {
     let stickyHTML = '';
 
     stickyNotes.forEach(stickyNote => {
-        stickyHTML += stickyTemplate({ ...stickyNote, iconClass, iconAction });
+        stickyHTML = stickyTemplate({ ...stickyNote, iconClass, iconAction }); // was +=
+        document.querySelector('.saved-container').insertAdjacentHTML("afterbegin", stickyHTML);
     })
-
-    document.querySelector('.saved-container').innerHTML = stickyHTML;
 }
 
 const handleState = state => event => {
